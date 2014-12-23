@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       dev: {
-        files: ["index.html", "**/*.css"]
+        files: ["public/index.html", "**/*.css", "**/*.js"]
       },
       options: {
         livereload: true
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          base: '.',
+          base: 'public',
         }
       }
     }
