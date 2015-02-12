@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
+var runSequence = require('run-sequence');
 
 gulp.task('browserSync', function() {
   browserSync({
@@ -13,5 +14,7 @@ gulp.task('browserSync', function() {
 });
 
 gulp.task('default', ['browserSync'], function() {
-  gulp.watch(['public/**/*'], browserSync.reload);
+  gulp.watch(['public/**/*'], function () {
+    runSequence(browserSync.reload);
+  });
 });
