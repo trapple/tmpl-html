@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
+var runSequence = require('run-sequence');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 
@@ -22,5 +23,7 @@ gulp.task('browserSync', function() {
 });
 
 gulp.task('default', ['browserSync'], function() {
-  gulp.watch(['public/**/*'], browserSync.reload);
+  gulp.watch(['public/**/*'], function () {
+    runSequence(browserSync.reload);
+  });
 });
